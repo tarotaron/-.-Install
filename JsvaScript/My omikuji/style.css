@@ -1,0 +1,33 @@
+body {
+	background: #efefef;
+}
+
+#btn {
+	width: 200px;
+	height: 200px;
+	background: #ef454a;
+	border-radius: 50%;
+	margin: 30px auto;
+	text-align: center;
+/*	要素内の文字高さ*/
+	line-height: 200px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 42px;
+	/*カーソルがあったったタイミングでカーソルのデザインが変わる*/
+	cursor: pointer;
+	/*ボタンの影下方向１０px*/
+	box-shadow: 0 10px 0 #d1483e;
+	/*文章の範囲選択ができない様になる*/
+	user-select: none;
+}
+
+#btn:hover {
+	/*ホバーした時に色に透明感を加える １が通常 ０になると透明*/
+	opacity: 0.9;
+}
+
+#btn:active {
+/*	box-shadow: 0 5px 0 #d1483e;
+*/	margin-top: 40px;
+}
