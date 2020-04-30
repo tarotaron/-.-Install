@@ -3,14 +3,73 @@ main {
 	margin: 0 auto;
 }
 
+img {
+	/*imgタグはインライン要素で画像下に余白ができる為無くす*/
+	vertical-align: bottom;
+}
+
 ul {
 	list-style: none;
-	padding: 
+	padding: 0;
+	margin: 0;
 }
 
 #main {
 	width: 300px;
 	height: 200px;
+	margin-bottom: 8px;
+}
+nav {
+	margin-bottom: 8px;
+
+}
+
+nav li {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 12px;
+	padding: 4px;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+}
+
+nav li:hover {
+	background-color: #f8f8f8;
+}
+
+nav ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+#play {
+	width: 140px;
+}
+
+#next,#prev {
+	width: 60px;
+}
+
+.thumbnails li {
+	cursor: pointer;
+	opacity: 0.4;
+}
+
+.thumbnails li:hover,
+.thumbnails li.current {
+	opacity: 1;
+}
+.thumbnails {
+	/*親要素にdisplay: grid;でGrid Layoutのコンテナ指定 Grid Layout=簡単なレイアウト機能
+	子要素がアイテムの対象となる 孫要素は対象とならない
+	grid-template-rows: 行のトラックの高さを半角スペースで区切って指定
+	grid-template-columns: 列のトラックの幅を半角スペースで区切って指定 56pxで5回repeat*/
+	display: grid;
+
+	grid-template-columns: repeat(5, 56px);
+	/*アイテム間の溝指定*/
+	gap: 5px;
 }
 
 .thumbnails img {
