@@ -15,14 +15,20 @@
 
 			this.stop = document.createElement('div');
 			this.stop.textContent = 'STOP';
-			this.stop.classList.add('stop');
+			this.stop.classList.add('stop', 'inactive');
 			this.stop.addEventListener('click', () => {
+				if (this.stop.classList.contains('inactive')) {
+					return
+				}
+				this.stop.classList.add('inactive');
 				// setTimeoutの解除
 				clearTimeout(this.timeoutId)
 
 				panelsleft--;
 
 				if(panelsleft === 0) {
+					spin.classList.remove('inactive');
+					panelsleft === 3;
 					checkResult();
 				}
 			});
@@ -51,17 +57,34 @@
 				this.spin();
 			}, 50);
 		}
+		isUnmatched(p1, p2) {
+			// if (this.img.src !==p1.img.src && this.img.src) {
+			// 	return true;
+			// } else {
+			// 	return false;
+			// }
+			return this.img.src !==p1.img.src && this.img.src !==p2.img.src;
+		}
+
+		unmatch() {
+			this.img.classList.add('unmatchd');
+		}
+
+		activete() {
+			this.stop.classList.remove('inactive');
+			this.img.classList.remove('unmatchd');
+		}
 	}
 
 	function checkResult() {
-		if(oanels[0].isUnmatched(panel[1], panel[2])) {
-			paneld[0].unmatch();
+		if(panels[0].isUnmatched(panels[1], panels[2])) {
+			panels[0].unmatch();
 		}
-		if(oanels[1].isUnmatched(panel[0], panel[2])) {
-			paneld[1].unmatch();
+		if(panels[1].isUnmatched(panels[0], panels[2])) {
+			panels[1].unmatch();
 		}
-		if(oanels[2].isUnmatched(panel[0], panel[1])) {
-			paneld[2].unmatch();
+		if(panels[2].isUnmatched(panels[0], panels[1])) {
+			panels[2].unmatch();
 		}
 	}
 	const panels = [
@@ -74,7 +97,12 @@
 
 	const spin = document.getElementById('spin')
 	spin.addEventListener('click', () => {
+		if(spin.classList.contains('inactive')) {
+			return
+		}
+		spin.classList.add('inactive');
 		panels.forEach(panel => {
+			panel.activete();
 			panel.spin();
 		})
 	})
