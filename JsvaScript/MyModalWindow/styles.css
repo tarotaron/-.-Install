@@ -1,0 +1,53 @@
+body {
+	font-size: 14px;
+}
+
+#open, #close {
+	cursor: pointer;
+	width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	text-align: center;
+	padding: 12px 0;
+	margin: 16px auto 0;
+}
+
+#mask {
+	background: rgba(0, 0, 0, 0.4);
+	/*画面固定body基準*/
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#modal {
+	background-color: #fff;
+	width: 300px;
+	padding: 20px;
+	border-radius: 4px;
+	/*static以外で配置された親要素(親にしたいものにposition:relativeをつける)/ない場合はbody基準*/
+	position: absolute;
+	/*絶対値からの表示位置*/
+	top: 40;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transition: transform 0.4s;
+	z-index: 2;
+}
+
+#modal > p {
+	margin: 0 0 20px;
+}
+
+#mask.hidden {
+	display: none;
+}
+
+#modal.hidden {
+	/*現在の位置からの表示位置 translateX(左右),translateY(上下),translateZ(奥行き),translate3d(X,Y,Z)*/
+	transform: translateY(-500px);
+}
