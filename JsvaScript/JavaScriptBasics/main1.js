@@ -34,11 +34,19 @@
 // 	});
 // }
 
+// {
+// 	document.querySelector('button').addEventListener('click', () =>{
+// 		const targetNode = document.getElementById('target');
+// 		targetNode.textContent = 'Chaged!';
+// 		targetNode.title = `This is title!`;
+// 		targetNode.style.color = 'red';
+// 	});
+// }
+
 {
-	function update() {
-		// document.querySelector('#target').textContent = 'Chaged!';
-	}
 	document.querySelector('button').addEventListener('click', () =>{
-		document.getElementById('target').textContent = 'Chaged!';
+		const targetNode = document.getElementById('target');
+		// className=書き換える
+		targetNode.className = 'my-color'
 	});
 }
