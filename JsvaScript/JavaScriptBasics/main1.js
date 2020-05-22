@@ -43,10 +43,26 @@
 // 	});
 // }
 
+// {
+// 	document.querySelector('button').addEventListener('click', () =>{
+// 		const targetNode = document.getElementById('target');
+// 		// className=書き換える
+// 		targetNode.className = 'my-color'
+// 	});
+// }
+
 {
 	document.querySelector('button').addEventListener('click', () =>{
 		const targetNode = document.getElementById('target');
-		// className=書き換える
-		targetNode.className = 'my-color'
+		// classList.add=書き換えずに追加
+		// targetNode.classList.add('my-color')
+		// contains=trueはfalseを返す
+		// if(targetNode.classList.contains('my-color') == true) {
+		// 	targetNode.classList.remove('my-color');
+		// } else {
+		// 	targetNode.classList.add('my-color');
+		// }
+		// toggle=表示、非表示を切り替える
+		targetNode.classList.toggle('my-color');
 	});
 }
